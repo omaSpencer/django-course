@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} My Blog {% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+{% endblock %}
+
+{% block body %}
+  <section id="welcome">
+    <header>
+      <img src="{% static 'blog/images/bud.jpeg' %}" alt="Spencer - The Author Of This Blog">
+      <h2>SPENCER'S BLOG</h2>
+    </header>
+    <p>Hi, I am Spencer and I love to blog about tech and the world!</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul>
+      {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>What I Do</h2>
+    <p>Id reprehenderit ex ullamco dolor sunt irure.</p>
+    <p>
+      Amet cillum eiusmod minim Lorem consectetur in tempor Lorem labore ex ad Lorem ea. Commodo laborum elit culpa culpa proident officia dolore. Occaecat consectetur Lorem et proident sit culpa mollit pariatur adipisicing culpa fugiat sunt.
+    </p>
+  </section>
+{% endblock %}
